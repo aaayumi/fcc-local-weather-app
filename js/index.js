@@ -2,11 +2,11 @@ var OpenWeatherKey = '4178c7c00c8613f9b84c4784af4fff3e';
 var locationUrl =  'http://freegeoip.net/json/';
 var weatherImage = "";
 var imagePhoto = {
-   thunder: "http://www.tabinotebook.com/wp-content/uploads/2017/02/jeremy-bishop-72584.jpg",
-   rainy: "http://www.tabinotebook.com/wp-content/uploads/2017/02/lukas-budimaier-131299.jpg",
-   cloudy: "http://www.tabinotebook.com/wp-content/uploads/2017/02/odair-faleco-192489.jpg",
-   snow: "http://www.tabinotebook.com/wp-content/uploads/2017/02/james-padolsey-154227.jpg",
-   sunny: "http://www.tabinotebook.com/wp-content/uploads/2017/02/tomas-salas-81161.jpg"
+   thunder: "./img/weather1.jpg",
+   rainy: "./img/weather2.jpg",
+   cloudy: "./img/weather3.jpg",
+   snow: "./img/weather4.jpg",
+   sunny: "./img/weather5.jpg"
 };
 
 function selectImage (id) {
@@ -15,17 +15,17 @@ function selectImage (id) {
    }
    else if (id >= 300 && id <= 531) {
        weatherImage = imagePhoto.rainy;
-   }       
+   }
    else if (id >= 600 && id <= 622) {
        weatherImage = imagePhoto.snow;
-   }   
+   }
    else if (id >= 801 && id <= 804) {
       weatherImage = imagePhoto.cloudy;
    }
    else if (id === 800) {
       weatherImage = imagePhoto.sunny;
    }
-   else { 
+   else {
       weatherImage = imagePhoto.cloudy;
    }
    // we set the background first after the weatherImage has been assigned a value
@@ -61,7 +61,7 @@ function getWeather(url){
           document.getElementById('icon').src= "http://openweathermap.org/img/w/" + icon + ".png";
           $('#weather').html(weather);
           $('#temp').html(temp);
-          // Change F to C, C to F 
+          // Change F to C, C to F
           var fahrenheit = Math.floor((temp) * 9/5 - 459.67) + '\xB0F';
           var celsius = Math.floor((temp)- 273.15) + '\xB0C';
           var $tempDisplay = $("#temp");
